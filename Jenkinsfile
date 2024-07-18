@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        echo "hello world it is simple-maven-project-with-tests branch --> master"
+        echo "hello world it is simple-maven-project-with-tests branch --> declarative"
       }
     }
   }
