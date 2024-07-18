@@ -1,17 +1,8 @@
-node ('any') {
-  checkout scm
-  stage('Build') {
-    withMaven(maven: 'M3') {
-      if (isUnix()) {
-        sh 'mvn -Dmaven.test.failure.ignore clean package'
-      }
-      else {
-        bat 'mvn -Dmaven.test.failure.ignore clean package'
-      }
+pipeline {
+  agent any
+  stages {
+    stage('build') {
+      echo "hello world it is simple-maven-project-with-tests branch --> master"
     }
-  }
-  stage('Results') {
-    junit '**/target/surefire-reports/TEST-*.xml'
-    archive 'target/*.jar'
   }
 }
