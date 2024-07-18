@@ -1,26 +1,8 @@
 pipeline {
-  agent {
-    kubernetes {
-      containerTemplate {
-        name 'maven'
-        image 'maven'
-        command 'sleep'
-        args 'infinity'
-      }
-    }
-  }
+  agent any
   stages {
-    stage('Run') {
-      steps {
-        container('maven') {
-          sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
-        }
-      }
-    }
-  }
-  post {
-    success {
-      junit '**/target/surefire-reports/TEST-*.xml'
+    stage('build') {
+      echo "hello world it is simple-maven-project-with-tests branch --> declarative"
     }
   }
 }
